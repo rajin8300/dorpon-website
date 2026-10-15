@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rajin8300.github.io/dorpon-website/sitemap.xml

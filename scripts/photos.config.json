@@ -1,0 +1,7 @@
+{
+  "_comment": "Optional settings for `npm run import-photos`. Leave `src` out to use the default folder (D:\\Poritflo photos), or set it to import from somewhere else. Set `hero` to the filename of the photo you want as the hero banner.",
+  "_example": {
+    "src": "D:\\Poritflo photos",
+    "hero": "FB_IMG_1792035421088.jpg"
+  }
+}

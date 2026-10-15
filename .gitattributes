@@ -1,0 +1,16 @@
+# Normalise line endings: store LF in the repo, check out LF everywhere.
+# The site is built on Linux (GitHub Actions), so LF keeps things predictable.
+* text=auto eol=lf
+
+# Binary assets must never be line-ending converted.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.avif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+
+# Keep GitHub's diff/language detection sensible.
+package-lock.json linguist-generated=true

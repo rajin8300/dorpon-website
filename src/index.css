@@ -1,0 +1,130 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------------------
+   DESIGN TOKENS
+   Warm, light, editorial. Photographs are the only strong visual element.
+--------------------------------------------------------------------------- */
+@theme {
+  --font-sans:
+    'Hind Siliguri', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans Bengali',
+    sans-serif;
+  --font-display: 'Fraunces', 'Hind Siliguri', Georgia, 'Times New Roman', serif;
+
+  --color-cream: #faf7f2;
+  --color-cream-deep: #f3eee5;
+  --color-paper: #fffdf9;
+  --color-ink: #1b1916;
+  --color-ink-soft: #46413a;
+  --color-muted: #8b8275;
+  --color-sand: #c1ab8b;
+  --color-sand-soft: #e5dac7;
+  --color-line: #e6dfd4;
+
+  --tracking-label: 0.24em;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* keeps anchored sections clear of the fixed header */
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* safety net against accidental horizontal scrolling */
+    overflow-x: clip;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--color-sand-soft);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Media never overflows its container */
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   REVEAL-ON-SCROLL
+   A single, gentle fade-up. Disabled for reduced-motion users.
+--------------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Skip link — visible only on keyboard focus */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100%;
+  z-index: 100;
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  padding: 0.65rem 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

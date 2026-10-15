@@ -1,0 +1,113 @@
+{
+  "generatedAt": "2026-10-15T04:02:28.944Z",
+  "hero": {
+    "slug": "fb-img-1792035302547",
+    "src1280": "/photos/hero-1280.webp",
+    "src1920": "/photos/hero-1920.webp",
+    "poster": "/photos/hero.jpg",
+    "width": 1920,
+    "height": 1280,
+    "alt": "Photograph from the Dorpon photography portfolio."
+  },
+  "photos": [
+    {
+      "slug": "fb-img-1792035302547",
+      "src": "/photos/fb-img-1792035302547.webp",
+      "thumb": "/photos/thumbs/fb-img-1792035302547.webp",
+      "width": 1800,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAwBACdASoUAA0APwFqrE8rJiQiMAgBYCAJbACdMoACbhhqYqSOx2kLpgAA/kvvGOmcpR+TcOZgihF7erehWye5dUhdwUzMDNS4gN35z6Ao3GuGMTYvnTu06QCAtBmhZRM9JirWLEQb6aW9tR0E55965D4h1yZOVl7eZKK/Xyu7WwEAoAA=",
+      "alt": "Photograph 1 from the Dorpon photography portfolio."
+    },
+    {
+      "slug": "fb-img-1792035324417",
+      "src": "/photos/fb-img-1792035324417.webp",
+      "thumb": "/photos/thumbs/fb-img-1792035324417.webp",
+      "width": 1350,
+      "height": 1800,
+      "blur": "data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAABwBQCdASoUABsAPwFqq06rJiOiMAgBYCAJbACdMtVEICnWTA+CL98w8x7yJ/5c7dUH0wJqAP7tTskiZKl/Wpy9liZCmA/44FaJicI3TwIScCWay/ZqOvNPrNgtVtdEdzMzc6qMHFxcnxEq2WQN6Y1d8DvIoQN742023LZXq1Kc5B0jJpbz8cJ+Emf4rFm+yn6VyMDI1FgdBbux1aM8PjSjXX2A3hZrlZE0W+pnxAA=",
+      "alt": "Photograph 2 from the Dorpon photography portfolio."
+    },
+    {
+      "slug": "fb-img-1792035342962",
+      "src": "/photos/fb-img-1792035342962.webp",
+      "thumb": "/photos/thumbs/fb-img-1792035342962.webp",
+      "width": 1350,
+      "height": 1800,
+      "blur": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAADQBACdASoUABsAPwFysVIrJqSiqAqpYCAJQAECAD5jy2rQg/idm4pRBYGdWPkngAD+7pDrjyxn7dvfiEP400g35Od9OKZ964a7kreKF657aaE8D+fAME7KzFXvZXiLFgOUF2Y+jNJe0Uw/4nmJNNvQw8meSVPUVcuhW7YCyRUccxe35kDvnoXXEu8fuAAA",
+      "alt": "Photograph 3 from the Dorpon photography portfolio."
+    },
+    {
+      "slug": "fb-img-1792035353243",
+      "src": "/photos/fb-img-1792035353243.webp",
+      "thumb": "/photos/thumbs/fb-img-1792035353243.webp",
+      "width": 1200,
+      "height": 1800,
+      "blur": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4IOIAAAAQBQCdASoUAB4APwFoq06rJaOiMAgBYCAJagC7MtpC+4Pg9Uo+YiBsZ7/dE9ojVQtAAP6xwlVBVR0iOg3B0l/g9vhSMARu5FnNOhvxqTI7PxTHnMvkK1L5whCTximxg0WEsawvHErHwKL/+aUXe4SiIzMUCvvLlaHQwQmHo3sidhMmW9mQM5HamYzCpA29HXlCxYNyvDqwqkc49VApLQEqj+KtBVp6PRCidn+IJcSAf5VM4424+04OEYmylmPy4PEC3YpBUHv+jVeAvbYr60PZAbKByvuHVfy2HloMl4g9xLAA",
+      "alt": "Photograph 4 from the Dorpon photography portfolio."
+    },
+    {
+      "slug": "fb-img-1792035364065",
+      "src": "/photos/fb-img-1792035364065.webp",
+      "thumb": "/photos/thumbs/fb-img-1792035364065.webp",
+      "width": 1200,
+      "height": 1800,
+      "blur": "data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAACwBQCdASoUAB4APwFqq06rJiOiMAgBYCAJbACo9B507AX1CU3SUV0Rr9Ji5Zp6A5eiIqaBGAAA/s23g9zjyoIBcKyevp8p2+L/SZalQE3ECsvvHmrHxY311aFbmZUfuRix1ZMXWaASbKgxBqBVPdkK3JwjpOSiOEDBZfQBs+P3PyoWfTBH9n7w49MpgCHzVOj3zoORcGd4scfyLbjw6aJXVti4oJgCO4GxI1wkHp/rS+OtRLgMJVWMbYHgbu3QehdfKkuvyu43vPH522L5D1BKMe/IP5bh/OxQgmH18ZTWE5DOuAA=",
+      "alt": "Photograph 5 from the Dorpon photography portfolio."
+    },
+    {
+      "slug": "fb-img-1792035372641",
+      "src": "/photos/fb-img-1792035372641.webp",
+      "thumb": "/photos/thumbs/fb-img-1792035372641.webp",
+      "width": 1350,
+      "height": 1800,
+      "blur": "data:image/webp;base64,UklGRuYAAABXRUJQVlA4INoAAACQBQCdASoUABsAPwFys1GrJqSiqAqpYCAJYgDFCvIBo/PInHkaCTkYRVx5FY25oQrgVl2wwAD+W6Tr8CLc4lLrq7lLkCsynoT2T+AzWBfSCOBGmojNx676xZJniv+Zgbv/75zIYItbujBrZA2AS3BQWkIcJBiiE43sHyB7rKTFDDP9O2LBM4NGOnfU/gBC0vjrLW+cvqlBA95FwXKmJQtt32+/cPiZAkQZXIrT8V+CUrZGF2iHOQPUmkPeQ0y+zBIDyKnOjeZC36f5ESIjyjg0gHeUBllNHYAAAA==",
+      "alt": "Photograph 6 from the Dorpon photography portfolio."
+    },
+    {
+      "slug": "fb-img-1792035377928",
+      "src": "/photos/fb-img-1792035377928.webp",
+      "thumb": "/photos/thumbs/fb-img-1792035377928.webp",
+      "width": 1200,
+      "height": 1800,
+      "blur": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAACwBQCdASoUAB4APwFurU8rJqQiMAgBYCAJQBYdhB0xU8oU6p7zABLdLrf/BwXubs51tv8XvAAA/qQiiC0n7Lv/9FdV9diIudvescWJ37F3XQGVPZQgBhIa2v621St8HWJFZEAj+U+39FWShPhtp0PcHAwL+TdhrNOQAS0obM1waDlmPjRuouer3BJQVPHBq9Ig0OFwAAA=",
+      "alt": "Photograph 7 from the Dorpon photography portfolio."
+    },
+    {
+      "slug": "fb-img-1792035384405",
+      "src": "/photos/fb-img-1792035384405.webp",
+      "thumb": "/photos/thumbs/fb-img-1792035384405.webp",
+      "width": 1350,
+      "height": 1800,
+      "blur": "data:image/webp;base64,UklGRv4AAABXRUJQVlA4IPIAAAAQBgCdASoUABsAPwFsr1ErJaQisBgIAWAgCWoAxQryTjm1AGWcXwW3rWSk/QCbzVKG8UL/Clp5tEAA/O/xKZRRkHM0HLAGJmV0nA/EXp2wak4vI70YxvYR5SVH4GYReTgoH6IN1s39QXuYeSe5SlQqMjjT2fVHkYjLkvaVJ+RrP+z+4bzGz+ihyKbvcka5q39UNVaK+wWw8IpqTs6Rq4mRaOOqvshl0Dcj9TwOjeULM2M6Saa9mJcR7ks8McVDWysHKLsInax+Bo7SCPyfPOwDMQS5QnwrlWn03aES3U3QSfkARMO/7n9cDOCqc0oe2AAAAA==",
+      "alt": "Photograph 8 from the Dorpon photography portfolio."
+    },
+    {
+      "slug": "fb-img-1792035408425",
+      "src": "/photos/fb-img-1792035408425.webp",
+      "thumb": "/photos/thumbs/fb-img-1792035408425.webp",
+      "width": 1200,
+      "height": 1800,
+      "blur": "data:image/webp;base64,UklGRtoAAABXRUJQVlA4IM4AAABQBQCdASoUAB4APwFwtFGrJiUiqAqpYCAJbACxDSAEXkp0ckBog3dzrHhNE4qmweBqIqAA/tClvUoLer8Var2rbWzNDrFuhJGZ1fAw7HmhGaV1SyA31/YnjUdZuuW4g7HtX616evirPSFT1ssonp4vgjdozzEPg8Rx3i0N8aspp7diBeBVGpihNc+baxzvixMIfjucz1pn5VB1C6im4kONNoQGdK/nuUUdz6+LcWxJ46yHWx2HV3/x3p+luwUrKH6kCWSRNWaWV6SQCXAAAA==",
+      "alt": "Photograph 9 from the Dorpon photography portfolio."
+    },
+    {
+      "slug": "fb-img-1792035421088",
+      "src": "/photos/fb-img-1792035421088.webp",
+      "thumb": "/photos/thumbs/fb-img-1792035421088.webp",
+      "width": 1800,
+      "height": 1200,
+      "blur": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoUAA0APwFqrU8rJaQiMAgBYCAJbAC/SfqgMTT+CFMfbLOMFAD+onLzk4q4rhwaVdS4bL8Gw/YMSsjFr0DOOTMgblHSGS5w6tg2XRj8WS1SiC8O5MVTEY7/7vs5f6tfGbfzyPfQeR7rZA8S5TZWgAAA",
+      "alt": "Photograph 10 from the Dorpon photography portfolio."
+    },
+    {
+      "slug": "fb-img-1792035452690",
+      "src": "/photos/fb-img-1792035452690.webp",
+      "thumb": "/photos/thumbs/fb-img-1792035452690.webp",
+      "width": 1352,
+      "height": 1800,
+      "blur": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAACQBQCdASoUABsAPwFys1IrJqSiqAqpYCAJbADA/KvyaBFbR7ys9X05WkrhwybHsrkdnRRgAAD+9gL/Ak6H3znNMWwsFYBk1FtnTrUzH0Z9/pdtgH5H1cISyhOeTuvTG999HOEzt/EHFjHb8oEPYDAh3zwobQbKCREextZkR8W0zS+dSNy3rmdn8WKW0Q8KkflUjSm/xpldlTaNUWOrNUv3qcUz7+5DL7zMfpuNy+t7yDFFpAAAAA==",
+      "alt": "Photograph 11 from the Dorpon photography portfolio."
+    }
+  ]
+}

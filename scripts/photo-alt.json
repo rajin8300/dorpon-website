@@ -1,0 +1,3 @@
+{
+  "_comment": "Optional overrides for photo alt text. Keys can be the original filename (e.g. \"FB_IMG_1792035302547.jpg\") or the generated slug. Replace these with real descriptions of what each photograph shows, then re-run: npm run import-photos"
+}
