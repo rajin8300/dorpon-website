@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { site } from '../config/site'
+import { brandAssets } from '../data/brand'
 import { IconClose, IconMenu } from './Icons'
 
 export default function Header() {
@@ -43,15 +44,35 @@ export default function Header() {
       <div className="mx-auto flex h-16 w-full max-w-[1400px] items-center justify-between px-5 sm:px-8 md:h-20 lg:px-12">
         <a
           href="#home"
-          lang="bn"
-          className={[
-            'flex items-baseline gap-2 transition-colors duration-500',
-            onDark ? 'text-cream' : 'text-ink',
-          ].join(' ')}
+          aria-label={`${site.brand.full} — home`}
+          className="group flex items-center"
         >
-          <span className="text-lg font-semibold tracking-[0.02em] sm:text-xl">{site.brand.bn}</span>
-          <span className="text-[0.62rem] font-medium uppercase tracking-label opacity-70">
-            {site.brand.en}
+          <span className="relative block h-9 aspect-[640/367] sm:h-11">
+            <img
+              src={brandAssets.logoCream}
+              alt=""
+              aria-hidden="true"
+              width={640}
+              height={367}
+              fetchPriority="high"
+              decoding="async"
+              className={[
+                'absolute inset-0 h-full w-full object-contain transition-opacity duration-500',
+                onDark ? 'opacity-100' : 'opacity-0',
+              ].join(' ')}
+            />
+            <img
+              src={brandAssets.logoBlack}
+              alt=""
+              aria-hidden="true"
+              width={640}
+              height={367}
+              decoding="async"
+              className={[
+                'absolute inset-0 h-full w-full object-contain transition-opacity duration-500',
+                onDark ? 'opacity-0' : 'opacity-100',
+              ].join(' ')}
+            />
           </span>
         </a>
 
@@ -107,9 +128,13 @@ export default function Header() {
         className="fixed inset-0 z-50 bg-cream md:hidden"
       >
         <div className="flex h-16 items-center justify-between px-5 sm:px-8">
-          <span lang="bn" className="text-lg font-semibold tracking-[0.02em] text-ink">
-            {site.brand.full}
-          </span>
+          <img
+            src={brandAssets.logoBlack}
+            alt={site.brand.full}
+            width={640}
+            height={367}
+            className="h-9 w-auto"
+          />
           <button
             type="button"
             onClick={() => setMenuOpen(false)}
