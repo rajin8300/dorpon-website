@@ -41,6 +41,10 @@ export const site = {
     facebook: 'https://www.facebook.com/dorpon830',
     /** Facebook handle shown in the contact section. */
     facebookHandle: '@dorpon830',
+    /** Instagram profile URL. */
+    instagram: 'https://www.instagram.com/rajin.830',
+    /** Instagram handle shown in the contact section. */
+    instagramHandle: '@rajin.830',
   },
 
   /** The two YouTube videos shown in the "Behind the Lens" section. */
