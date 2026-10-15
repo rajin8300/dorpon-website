@@ -85,6 +85,15 @@ export function IconPlay(props: IconProps) {
   )
 }
 
+/** Filled Facebook glyph. */
+export function IconFacebook(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor" {...props}>
+      <path d="M24 12.07C24 5.44 18.63 0 12 0S0 5.44 0 12.07C0 18.06 4.39 23.03 10.13 23.93v-8.39H7.08v-3.47h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.69.24 2.69.24v2.95h-1.52c-1.49 0-1.96.93-1.96 1.88v2.25h3.33l-.53 3.47h-2.8v8.39C19.61 23.03 24 18.06 24 12.07Z" />
+    </svg>
+  )
+}
+
 /** Filled WhatsApp glyph. */
 export function IconWhatsApp(props: IconProps) {
   return (

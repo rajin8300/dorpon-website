@@ -1,6 +1,6 @@
 import { site } from '../config/site'
 import SectionIntro from './SectionIntro'
-import { IconArrowUpRight, IconMail, IconMapPin, IconPhone, IconWhatsApp } from './Icons'
+import { IconArrowUpRight, IconFacebook, IconMail, IconMapPin, IconPhone, IconWhatsApp } from './Icons'
 
 export default function Contact() {
   const { contact, location } = site
@@ -20,7 +20,7 @@ export default function Contact() {
         />
 
         {/* Hairline-divided details. No form — every row is a real, working link. */}
-        <div className="reveal mt-14 grid gap-px overflow-hidden border border-line bg-line sm:mt-16 sm:grid-cols-3">
+        <div className="reveal mt-14 grid gap-px overflow-hidden border border-line bg-line sm:mt-16 sm:grid-cols-2 lg:grid-cols-4">
           <div className="bg-cream-deep p-7 sm:p-8">
             <IconMapPin className="h-5 w-5 text-sand" />
             <p className="mt-5 text-[0.68rem] font-medium uppercase tracking-label text-muted">Location</p>
@@ -49,6 +49,20 @@ export default function Contact() {
               <IconArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </p>
             <p className="mt-2 break-all text-lg text-ink">{contact.email}</p>
+          </a>
+
+          <a
+            href={contact.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group bg-cream-deep p-7 transition-colors duration-300 hover:bg-cream sm:p-8"
+          >
+            <IconFacebook className="h-5 w-5 text-sand" />
+            <p className="mt-5 flex items-center gap-2 text-[0.68rem] font-medium uppercase tracking-label text-muted">
+              Facebook
+              <IconArrowUpRight className="h-3.5 w-3.5 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+            </p>
+            <p className="mt-2 break-all text-lg text-ink">{contact.facebookHandle}</p>
           </a>
         </div>
 

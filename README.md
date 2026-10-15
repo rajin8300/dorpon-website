@@ -138,13 +138,16 @@ export const site = {
     email: 'rajin8300@gmail.com',
     emailHref: 'mailto:rajin8300@gmail.com',
     whatsapp: 'https://wa.me/8801740744170',
+    facebook: 'https://www.facebook.com/dorpon830',
+    facebookHandle: '@dorpon830',
   },
   videos: [ /* YouTube video ids + labels */ ],
   nav: [ /* navigation links */ ],
 }
 ```
 
-Change a phone number, email, WhatsApp link, the YouTube videos or the nav items there — nowhere else.
+Change a phone number, email, WhatsApp or Facebook link, the YouTube videos or the nav items there —
+nowhere else.
 
 ### The public URL (already filled in)
 
@@ -167,7 +170,7 @@ If you later move to a custom domain (e.g. `dorpon.com`) or another host:
 | Portfolio        | “Our Selected Works” — masonry gallery with blur-up loading and a keyboard-accessible lightbox |
 | Behind the Lens  | Two responsive 16:9 YouTube embeds (privacy-friendly `youtube-nocookie.com`, no autoplay) |
 | About            | “A Little About Dorpon” — short and factual                          |
-| Contact          | Phone (`tel:`), email (`mailto:`), WhatsApp button, location         |
+| Contact          | Phone (`tel:`), email (`mailto:`), Facebook page link, WhatsApp button, location |
 | Footer           | Brand, location, “Photography & Videography”, dynamic copyright year |
 
 There is **no contact form** — every contact row is a real, working link instead, so nothing can

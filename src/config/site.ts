@@ -37,6 +37,10 @@ export const site = {
     emailHref: 'mailto:rajin8300@gmail.com',
     /** WhatsApp deep link using the international number without "+" or spaces. */
     whatsapp: 'https://wa.me/8801740744170',
+    /** Facebook page URL. */
+    facebook: 'https://www.facebook.com/dorpon830',
+    /** Facebook handle shown in the contact section. */
+    facebookHandle: '@dorpon830',
   },
 
   /** The two YouTube videos shown in the "Behind the Lens" section. */
