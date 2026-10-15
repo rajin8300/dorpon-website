@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T04:02:28.944Z",
+  "generatedAt": "2026-10-15T05:09:33.348Z",
   "hero": {
     "slug": "fb-img-1792035302547",
     "src1280": "/photos/hero-1280.webp",
@@ -9,6 +9,96 @@
     "height": 1280,
     "alt": "Photograph from the Dorpon photography portfolio."
   },
+  "slideshow": [
+    {
+      "key": "fb-img-1792035302547",
+      "src1280": "/photos/heroes/fb-img-1792035302547-1280.webp",
+      "src1920": "/photos/heroes/fb-img-1792035302547-1920.webp",
+      "width": 1920,
+      "height": 1280,
+      "alt": "Photograph 1 from the Dorpon photography portfolio."
+    },
+    {
+      "key": "fb-img-1792035324417",
+      "src1280": "/photos/heroes/fb-img-1792035324417-1280.webp",
+      "src1920": "/photos/heroes/fb-img-1792035324417-1920.webp",
+      "width": 1536,
+      "height": 2048,
+      "alt": "Photograph 2 from the Dorpon photography portfolio."
+    },
+    {
+      "key": "fb-img-1792035342962",
+      "src1280": "/photos/heroes/fb-img-1792035342962-1280.webp",
+      "src1920": "/photos/heroes/fb-img-1792035342962-1920.webp",
+      "width": 1440,
+      "height": 1920,
+      "alt": "Photograph 3 from the Dorpon photography portfolio."
+    },
+    {
+      "key": "fb-img-1792035353243",
+      "src1280": "/photos/heroes/fb-img-1792035353243-1280.webp",
+      "src1920": "/photos/heroes/fb-img-1792035353243-1920.webp",
+      "width": 1365,
+      "height": 2048,
+      "alt": "Photograph 4 from the Dorpon photography portfolio."
+    },
+    {
+      "key": "fb-img-1792035364065",
+      "src1280": "/photos/heroes/fb-img-1792035364065-1280.webp",
+      "src1920": "/photos/heroes/fb-img-1792035364065-1920.webp",
+      "width": 1365,
+      "height": 2048,
+      "alt": "Photograph 5 from the Dorpon photography portfolio."
+    },
+    {
+      "key": "fb-img-1792035372641",
+      "src1280": "/photos/heroes/fb-img-1792035372641-1280.webp",
+      "src1920": "/photos/heroes/fb-img-1792035372641-1920.webp",
+      "width": 1536,
+      "height": 2048,
+      "alt": "Photograph 6 from the Dorpon photography portfolio."
+    },
+    {
+      "key": "fb-img-1792035377928",
+      "src1280": "/photos/heroes/fb-img-1792035377928-1280.webp",
+      "src1920": "/photos/heroes/fb-img-1792035377928-1920.webp",
+      "width": 1365,
+      "height": 2048,
+      "alt": "Photograph 7 from the Dorpon photography portfolio."
+    },
+    {
+      "key": "fb-img-1792035384405",
+      "src1280": "/photos/heroes/fb-img-1792035384405-1280.webp",
+      "src1920": "/photos/heroes/fb-img-1792035384405-1920.webp",
+      "width": 1536,
+      "height": 2048,
+      "alt": "Photograph 8 from the Dorpon photography portfolio."
+    },
+    {
+      "key": "fb-img-1792035408425",
+      "src1280": "/photos/heroes/fb-img-1792035408425-1280.webp",
+      "src1920": "/photos/heroes/fb-img-1792035408425-1920.webp",
+      "width": 1365,
+      "height": 2048,
+      "alt": "Photograph 9 from the Dorpon photography portfolio."
+    },
+    {
+      "key": "fb-img-1792035421088",
+      "src1280": "/photos/heroes/fb-img-1792035421088-1280.webp",
+      "src1920": "/photos/heroes/fb-img-1792035421088-1920.webp",
+      "width": 1920,
+      "height": 1280,
+      "alt": "Photograph 10 from the Dorpon photography portfolio."
+    },
+    {
+      "key": "fb-img-1792035452690",
+      "src1280": "/photos/heroes/fb-img-1792035452690-1280.webp",
+      "src1920": "/photos/heroes/fb-img-1792035452690-1920.webp",
+      "width": 1538,
+      "height": 2048,
+      "alt": "Photograph 11 from the Dorpon photography portfolio."
+    }
+  ],
   "photos": [
     {
       "slug": "fb-img-1792035302547",

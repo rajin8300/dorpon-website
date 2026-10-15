@@ -35,6 +35,7 @@ const DEFAULT_SRC = 'D:\\Poritflo photos'
 
 const OUT_DIR = path.join(projectRoot, 'public', 'photos')
 const THUMB_DIR = path.join(OUT_DIR, 'thumbs')
+const HEROES_DIR = path.join(OUT_DIR, 'heroes')
 const MANIFEST_PATH = path.join(projectRoot, 'src', 'data', 'gallery.json')
 
 /* ------------------------------ helpers ------------------------------- */
@@ -135,9 +136,12 @@ async function main() {
     await rm(OUT_DIR, { recursive: true, force: true })
   }
   await mkdir(THUMB_DIR, { recursive: true })
+  await mkdir(HEROES_DIR, { recursive: true })
 
   /** @type {Array<{slug:string,file:string,src:string,thumb:string,width:number,height:number,blur:string,alt:string,ratio:number}>} */
   const photos = []
+  /** @type {Array<{key:string,src1280:string,src1920:string,width:number,height:number,alt:string}>} */
+  const slides = []
   const usedSlugs = new Set()
 
   for (const [index, file] of files.entries()) {
@@ -166,6 +170,18 @@ async function main() {
       .webp({ quality: 35 })
       .toBuffer()
 
+    // Hero-sized variants for the slideshow. We keep the original aspect ratio
+    // (fit: 'inside') so each photo's composition is preserved — the browser
+    // crops with `object-cover` only as much as the viewport requires.
+    await pipeline()
+      .resize({ width: 1280, withoutEnlargement: true })
+      .webp({ quality: 80, effort: 4 })
+      .toFile(path.join(HEROES_DIR, `${slug}-1280.webp`))
+    const heroInfo = await pipeline()
+      .resize({ width: 1920, withoutEnlargement: true })
+      .webp({ quality: 80, effort: 4 })
+      .toFile(path.join(HEROES_DIR, `${slug}-1920.webp`))
+
     const alt =
       altOverrides[file] ??
       altOverrides[slug] ??
@@ -180,6 +196,15 @@ async function main() {
       height: fullInfo.height,
       ratio: Number((fullInfo.width / fullInfo.height).toFixed(4)),
       blur: `data:image/webp;base64,${blurBuffer.toString('base64')}`,
+      alt,
+    })
+
+    slides.push({
+      key: slug,
+      src1280: `/photos/heroes/${slug}-1280.webp`,
+      src1920: `/photos/heroes/${slug}-1920.webp`,
+      width: heroInfo.width,
+      height: heroInfo.height,
       alt,
     })
 
@@ -226,6 +251,7 @@ async function main() {
   const manifest = {
     generatedAt: new Date().toISOString(),
     hero,
+    slideshow: slides,
     photos: photos.map(({ file: _file, ratio: _ratio, ...rest }) => rest),
   }
 
@@ -234,13 +260,19 @@ async function main() {
 
   const totalBytes = (
     await Promise.all(
-      [...photos.map((p) => stat(path.join(OUT_DIR, `${p.slug}.webp`))), stat(path.join(OUT_DIR, 'hero-1920.webp'))],
+      [
+        ...photos.map((p) => stat(path.join(OUT_DIR, `${p.slug}.webp`))),
+        stat(path.join(OUT_DIR, 'hero-1920.webp')),
+        ...photos.map((p) => stat(path.join(HEROES_DIR, `${p.slug}-1280.webp`))),
+        ...photos.map((p) => stat(path.join(HEROES_DIR, `${p.slug}-1920.webp`))),
+      ],
     )
   ).reduce((sum, s) => sum + s.size, 0)
 
   console.log('\nDone.')
   console.log(`  images  : ${photos.length}`)
   console.log(`  hero    : ${heroPick.file} → hero-1920.webp + hero.jpg`)
+  console.log(`  slideshow: ${slides.length} hero-sized images in public/photos/heroes/`)
   console.log(`  manifest: ${path.relative(projectRoot, MANIFEST_PATH)}`)
   console.log(`  total   : ${(totalBytes / 1024 / 1024).toFixed(2)} MB of optimised images`)
   console.log('\nTip: add real captions in scripts/photo-alt.json and re-run for better alt text.')

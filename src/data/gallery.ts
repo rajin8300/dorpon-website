@@ -30,9 +30,20 @@ export interface HeroImage {
   alt: string
 }
 
+export interface Slide {
+  /** Stable identifier used as the React key and for failure tracking. */
+  key: string
+  src1280: string
+  src1920: string
+  width: number
+  height: number
+  alt: string
+}
+
 export interface GalleryManifest {
   generatedAt: string
   hero: HeroImage
+  slideshow?: Slide[]
   photos: Photo[]
 }
 
@@ -56,6 +67,22 @@ export const hero: HeroImage = {
   src1920: asset(gallery.hero.src1920),
   poster: asset(gallery.hero.poster),
 }
+
+export const slides: Slide[] = (
+  gallery.slideshow ??
+  gallery.photos.map((p) => ({
+    key: p.slug,
+    src1280: p.src.replace('.webp', '-1280.webp'),
+    src1920: p.src.replace('.webp', '-1920.webp'),
+    width: gallery.hero.width,
+    height: gallery.hero.height,
+    alt: p.alt,
+  }))
+).map((s) => ({
+  ...s,
+  src1280: asset(s.src1280),
+  src1920: asset(s.src1920),
+}))
 
 export const photos: Photo[] = gallery.photos.map((photo) => ({
   ...photo,
