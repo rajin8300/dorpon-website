@@ -43,6 +43,9 @@ Other useful commands:
 | `npm run typecheck`   | Runs the TypeScript compiler only (no output)                   |
 | `npm run import-photos` | Re-optimises your photos and rebuilds the gallery (see below) |
 
+> `npm run dev` serves the site at <http://localhost:5173/>. `npm run preview` serves the production
+> build exactly as GitHub Pages will, at <http://localhost:4173/dorpon-website/>.
+
 ---
 
 ## 3. Your photos (important)
@@ -143,11 +146,15 @@ export const site = {
 
 Change a phone number, email, WhatsApp link, the YouTube videos or the nav items there — nowhere else.
 
-### Before you publish: update the public URL
+### The public URL (already filled in)
 
-The page title, meta description, favicon and Open Graph tags live in **`index.html`**. Replace the
-placeholder `https://example.com/` values (`rel="canonical"`, `og:url`) with your real domain, and
-check `og:image` (`/photos/hero.jpg` is generated for you).
+The page title, meta description, favicon and Open Graph tags live in **`index.html`**. They already
+point at the live URL, `https://rajin8300.github.io/dorpon-website/`.
+
+If you later move to a custom domain (e.g. `dorpon.com`) or another host:
+
+1. Update `rel="canonical"`, `og:url`, `og:image` and `twitter:image` in `index.html`.
+2. Rebuild with the matching base path (see §8) — `BASE_PATH=/ npm run build` for a domain root.
 
 ---
 
@@ -172,8 +179,9 @@ silently fail to send.
 
 ```
 dorpon-website/
+├── .github/workflows/deploy.yml ← builds & deploys to GitHub Pages
 ├── index.html                  ← page title, meta description, Open Graph, fonts
-├── vite.config.ts
+├── vite.config.ts              ← includes the GitHub Pages base path
 ├── tsconfig.json
 ├── scripts/
 │   ├── import-photos.mjs       ← photo optimiser / gallery generator
@@ -181,6 +189,8 @@ dorpon-website/
 │   └── photos.config.json      ← optional source folder + hero override
 ├── public/
 │   ├── favicon.svg
+│   ├── robots.txt
+│   ├── sitemap.xml
 │   └── photos/                 ← generated images (created by the import script)
 └── src/
     ├── config/site.ts          ← all business details (edit me)
@@ -239,17 +249,43 @@ vercel --prod   # deploy to production
 - Build command: `npm run build`
 - Build output directory: `dist`
 
-### GitHub Pages
+### GitHub Pages — this site is already live ✅
 
-1. Push the project to a GitHub repository.
-2. Build and publish the `dist` folder (for example with the `gh-pages` package), or use
-   GitHub Actions with `actions/upload-pages-artifact`.
+**Live at <https://rajin8300.github.io/dorpon-website/>**
+
+The repository is <https://github.com/rajin8300/dorpon-website>. Deployment is automatic:
+
+- `.github/workflows/deploy.yml` runs on every push to `main`.
+- It installs with `npm ci`, runs `npm run build`, and publishes `dist/` with GitHub Pages.
+- Pages is configured with **Source: GitHub Actions** (not a branch folder).
+
+To publish a change, just commit and push:
+
+```bash
+git add -A
+git commit -m "Update site"
+git push
+```
+
+Then watch the run at <https://github.com/rajin8300/dorpon-website/actions>, or from the terminal:
+
+```bash
+gh run watch --repo rajin8300/dorpon-website
+```
+
+> **Why is the base path `/dorpon-website/`?** GitHub Pages serves project sites from a sub-path
+> (`https://<user>.github.io/<repo>/`). `vite.config.ts` sets `base` to match, so every asset URL
+> gets that prefix automatically. Locally, `npm run dev` still works at <http://localhost:5173/>.
+>
+> If you rename the repository, update `base` in `vite.config.ts` (the `BASE_PATH` constant) **and**
+> the URL in `index.html` to match. For a custom domain served from the root, build with
+> `BASE_PATH=/ npm run build`.
 
 ### After deploying
 
 - Point your own domain (e.g. `dorpon.com`) at the host from its dashboard.
-- Update the canonical/OG URL in `index.html` to that domain and redeploy so link previews work.
-- Optionally add a `robots.txt` / `sitemap.xml` — nice for a single-page site.
+- Update the canonical/OG URL in `index.html` to that domain, rebuild with `BASE_PATH=/`, and
+  redeploy so link previews keep working.
 
 ---
 
