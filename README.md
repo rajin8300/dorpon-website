@@ -42,6 +42,7 @@ Other useful commands:
 | `npm run preview`     | Serves the built `dist/` locally at http://localhost:4173       |
 | `npm run typecheck`   | Runs the TypeScript compiler only (no output)                   |
 | `npm run import-photos` | Re-optimises your photos and rebuilds the gallery (see below) |
+| `npm run import-logo`   | Rebuilds the logo assets + favicons from `brand-src/` (see below) |
 
 > `npm run dev` serves the site at <http://localhost:5173/>. `npm run preview` serves the production
 > build exactly as GitHub Pages will, at <http://localhost:4173/dorpon-website/>.
@@ -147,7 +148,54 @@ Keys can be either the original filename or the generated slug.
 
 ---
 
-## 4. Editing business details
+## 4. Your logo (brand assets)
+
+The original logo files are **never modified**. Trimmed master copies live in `brand-src/`, and the
+website only ever loads the small, optimised versions in `public/logo/` and `public/`.
+
+Where the logo appears:
+
+| Spot                        | File used               | Why                                                   |
+| --------------------------- | ----------------------- | ----------------------------------------------------- |
+| Header, top of the page     | `logo-cream.webp`       | the header is transparent over the dark hero          |
+| Header, once you scroll     | `logo-black.webp`       | the header turns cream, so the black lockup is used   |
+| Mobile menu panel           | `logo-black.webp`       | cream background                                      |
+| Footer                      | `logo-black.webp`       | cream background                                      |
+| Browser tab / home screen   | `favicon-*.png`, `apple-touch-icon.png` | cropped from the icon mark             |
+
+The header swaps between the cream and black lockups with a short fade, matching the header's existing
+colour change. To use a different colour there, change the `src` in `src/components/Header.tsx`.
+
+### Changing the logo later
+
+1. Put your new masters in `brand-src/`, keeping the same file names:
+
+   ```
+   brand-src/
+   ├── logo-black.png   ← transparent lockup, dark ink (used on light backgrounds)
+   ├── logo-cream.png   ← transparent lockup, warm cream (used on dark backgrounds)
+   ├── logo-white.png   ← transparent lockup, pure white (spare)
+   ├── logo-gold.png    ← transparent lockup, gold (spare)
+   └── logo-mark.png    ← square-ish icon card used for the favicon
+   ```
+
+2. Rebuild the site assets:
+
+   ```bash
+   npm run import-logo
+   ```
+
+   Using a different folder? Pass it in: `npm run import-logo -- --src "D:\Brand"`.
+
+3. Rebuild / push. The favicons are generated automatically: the script finds the artwork inside
+   `logo-mark.png` and crops a square around it, so the icon stays legible at 16 px.
+
+> The `logo-gold`, `logo-white` and `logo-cream` lockups are generated but only the ones that are
+> referenced (`logo-cream`, `logo-black`) end up being requested by the browser.
+
+---
+
+## 5. Editing business details
 
 **All contact details live in one file: `src/config/site.ts`.**
 
@@ -183,46 +231,50 @@ point at the live URL, `https://rajin8300.github.io/dorpon-website/`.
 If you later move to a custom domain (e.g. `dorpon.com`) or another host:
 
 1. Update `rel="canonical"`, `og:url`, `og:image` and `twitter:image` in `index.html`.
-2. Rebuild with the matching base path (see §8) — `BASE_PATH=/ npm run build` for a domain root.
+2. Rebuild with the matching base path (see §9) — `BASE_PATH=/ npm run build` for a domain root.
 
 ---
 
-## 5. Website sections
+## 6. Website sections
 
 | Section          | Content                                                              |
 | ---------------- | -------------------------------------------------------------------- |
-| Header           | Brand wordmark, nav (Home / Portfolio / About / Contact), Contact button, mobile menu |
+| Header           | Logo (cream over the hero, black once scrolled), nav (Home / Portfolio / About / Contact), Contact button, mobile menu |
 | Hero             | Full-width automatic photo slideshow (random start, 5s crossfade), label, “Every Frame Tells a Story.”, supporting line, two buttons |
 | Portfolio        | “Our Selected Works” — masonry gallery with blur-up loading and a keyboard-accessible lightbox |
 | Behind the Lens  | Two responsive 16:9 YouTube embeds (privacy-friendly `youtube-nocookie.com`, no autoplay) |
 | About            | “A Little About Dorpon” — short and factual                          |
 | Contact          | Phone (`tel:`), email (`mailto:`), Facebook & Instagram profile links, WhatsApp button, location |
-| Footer           | Brand, location, “Photography & Videography”, dynamic copyright year |
+| Footer           | Logo, location, “Photography & Videography”, dynamic copyright year |
 
 There is **no contact form** — every contact row is a real, working link instead, so nothing can
 silently fail to send.
 
 ---
 
-## 6. Project structure
+## 7. Project structure
 
 ```
 dorpon-website/
 ├── .github/workflows/deploy.yml ← builds & deploys to GitHub Pages
-├── index.html                  ← page title, meta description, Open Graph, fonts
+├── index.html                  ← page title, meta description, favicons, Open Graph, fonts
 ├── vite.config.ts              ← includes the GitHub Pages base path
 ├── tsconfig.json
+├── brand-src/                  ← trimmed logo masters (source for `npm run import-logo`)
 ├── scripts/
 │   ├── import-photos.mjs       ← photo optimiser / gallery generator
+│   ├── import-logo.mjs         ← logo optimiser / favicon generator
 │   ├── photo-alt.json          ← optional alt-text overrides
 │   └── photos.config.json      ← optional source folder + hero override
 ├── public/
-│   ├── favicon.svg
+│   ├── favicon-32.png  favicon-192.png  favicon-512.png  apple-touch-icon.png
+│   ├── logo/                   ← generated header/footer logos (created by import-logo)
 │   ├── robots.txt
 │   ├── sitemap.xml
 │   └── photos/                 ← generated images (created by the import script)
 └── src/
     ├── config/site.ts          ← all business details (edit me)
+    ├── data/brand.ts           ← logo asset URLs (base-path aware)
     ├── data/gallery.ts         ← typed access to the generated manifest
     ├── data/gallery.json       ← generated by the import script
     ├── hooks/useReveal.ts      ← gentle scroll-in animation
@@ -238,21 +290,21 @@ dorpon-website/
 
 ---
 
-## 7. Design notes
+## 8. Design notes
 
 - **Colours & fonts are tokens** in `src/index.css` (`@theme`). Change `--color-cream`, `--color-ink`,
   `--color-sand`, etc. to re-skin the whole site.
 - **Typography:** *Hind Siliguri* (supports Bangla + Latin) and *Fraunces* (editorial serif for
   headings), loaded from Google Fonts, with system fallbacks so the site still looks right offline.
 - **Accessibility:** semantic landmarks, a skip link, visible focus outlines, `alt` text on every
-  photo, labelled iframes and buttons, Escape/arrow-key support in the lightbox, and full
-  `prefers-reduced-motion` support.
+  photo, a labelled link for the logo, labelled iframes and buttons, Escape/arrow-key support in the
+  lightbox, and full `prefers-reduced-motion` support.
 - **Performance:** lazy-loaded thumbnails, inline blur placeholders, `fetchpriority="high"` on the
   hero, and no unnecessary dependencies (only React + Tailwind).
 
 ---
 
-## 8. Publishing the website
+## 9. Publishing the website
 
 The build output is a plain static folder (`dist/`), so any static host works. Run `npm run build`
 first, then pick one:
@@ -318,7 +370,7 @@ gh run watch --repo rajin8300/dorpon-website
 
 ---
 
-## 9. Notes
+## 10. Notes
 
 - The site works fully offline/without a backend.
 - The two videos are embedded from YouTube; they need an internet connection to play.
